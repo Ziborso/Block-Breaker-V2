@@ -22,4 +22,16 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void UpdateLives(int changeInLives)
+    {
+        lives += changeInLives;
+        livesText.text = "Lives: " + lives;
+    }
+    public void UpdateScore(int points)
+    {
+        score += points;
+
+        scoreText.text = "score: " + score;
+    }
 }

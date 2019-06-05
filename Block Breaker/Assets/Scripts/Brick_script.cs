@@ -7,6 +7,7 @@ public class Brick_script : MonoBehaviour
 
     public int hitsToBreake;
     public Sprite hitSprite;
+    public int points;
     public void BreakBrick () {
 
         hitsToBreake --;

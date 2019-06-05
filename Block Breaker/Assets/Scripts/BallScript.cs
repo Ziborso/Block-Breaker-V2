@@ -44,6 +44,7 @@ public class BallScript : MonoBehaviour
             SceneManager.LoadScene("Lose");
             rb.velocity = Vector2.zero;
             inPlay = false;
+            gm.UpdateLives(-1);
         }
     }
 
@@ -54,6 +55,9 @@ public class BallScript : MonoBehaviour
         {
             Transform newExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
             Destroy (newExplosion.gameObject, 2.5f);
+
+            gm.UpdateScore (other.gameObject.GetComponent< Brick_script > ().points);
+
             Destroy (other.gameObject);
         }
             
