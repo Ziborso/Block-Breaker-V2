@@ -33,7 +33,7 @@ public class PaddleSccript : MonoBehaviour
         float mousePosInUnits = Input.mousePosition.x / Screen.width * screenWidthInUnits;
         Vector2 PaddlePos = new Vector2(mousePosInUnits, transform.position.y);
         transform.position = PaddlePos;
-        // Section for test play inside engine
+        
         if (transform.position.x < leftScreenEdge)
         {
             transform.position = new Vector2(leftScreenEdge, transform.position.y);

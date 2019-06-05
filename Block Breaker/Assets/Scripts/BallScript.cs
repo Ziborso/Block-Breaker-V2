@@ -9,6 +9,8 @@ public class BallScript : MonoBehaviour
     public bool inPlay;
     public Transform paddle;
     public float BallSpeed;
+    public Transform explosion;
+    public GameManager gm;
 
     void Start()
     {
@@ -44,4 +46,16 @@ public class BallScript : MonoBehaviour
             inPlay = false;
         }
     }
-}
+
+    // Hit in brick
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag ("Brick"))
+        {
+            Transform newExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
+            Destroy (newExplosion.gameObject, 2.5f);
+            Destroy (other.gameObject);
+        }
+            
+    }
+} 
