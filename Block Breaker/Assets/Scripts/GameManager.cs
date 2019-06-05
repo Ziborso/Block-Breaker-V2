@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,11 +11,15 @@ public class GameManager : MonoBehaviour
     public int score;
     public Text livesText;
     public Text scoreText;
+    public bool gameOver;
+    public int numberOfBricks;
     // Start is called before the first frame update
     void Start()
     {
         livesText.text = "Lives: " + lives;
         scoreText.text = "Score: " + score;
+        numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
+
     }
 
     // Update is called once per frame
@@ -26,6 +31,12 @@ public class GameManager : MonoBehaviour
     public void UpdateLives(int changeInLives)
     {
         lives += changeInLives;
+
+        if (lives <= 0)
+        {
+            lives = 0;
+            SceneManager.LoadScene("Lose");
+        }
         livesText.text = "Lives: " + lives;
     }
     public void UpdateScore(int points)
@@ -33,5 +44,10 @@ public class GameManager : MonoBehaviour
         score += points;
 
         scoreText.text = "score: " + score;
+    }
+
+    void GameOver()
+    {
+
     }
 }
