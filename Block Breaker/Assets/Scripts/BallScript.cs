@@ -11,13 +11,14 @@ public class BallScript : MonoBehaviour
     public float BallSpeed;
     public Transform explosion;
     public GameManager gm;
+    public int numberOfBricks;
 
     void Start()
     {
         // Movement of the ball
         rb = GetComponent<Rigidbody2D> ();
 
-        rb.AddForce (Vector2.up * BallSpeed);
+        
     }
 
     void Update()
@@ -36,12 +37,12 @@ public class BallScript : MonoBehaviour
         }
     }
 
-    // Load Lose lvl, when touches Collider
+    // Touch colider
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bottom"))
         {
-            SceneManager.LoadScene("Lose");
+            
             rb.velocity = Vector2.zero;
             inPlay = false;
             gm.UpdateLives(-1);

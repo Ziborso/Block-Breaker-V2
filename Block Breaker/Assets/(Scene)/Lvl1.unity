@@ -3262,10 +3262,11 @@ MonoBehaviour:
   rb: {fileID: 0}
   inPlay: 0
   paddle: {fileID: 94467950}
-  BallSpeed: 300
+  BallSpeed: 500
   explosion: {fileID: 8006729702700924096, guid: 51dfcb7afe15d6e4797db1bcf5c10c3d,
     type: 3}
   gm: {fileID: 2051854917}
+  numberOfBricks: 0
 --- !u!1 &2051854915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,6 +3314,8 @@ MonoBehaviour:
   score: 0
   livesText: {fileID: 2095007638}
   scoreText: {fileID: 444222013}
+  gameOver: 0
+  numberOfBricks: 0
 --- !u!1001 &2060267655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3717,6 +3720,11 @@ PrefabInstance:
     - target: {fileID: 4343013807379735384, guid: f3d31f3427091fb42b07d91f00e0be4d,
         type: 3}
       propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343013807379735384, guid: f3d31f3427091fb42b07d91f00e0be4d,
+        type: 3}
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
