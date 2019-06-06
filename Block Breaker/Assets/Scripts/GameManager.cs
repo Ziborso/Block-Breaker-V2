@@ -45,6 +45,14 @@ public class GameManager : MonoBehaviour
 
         scoreText.text = "score: " + score;
     }
+    public void UpdateNumberOfBricks()
+    {
+        numberOfBricks--; 
+        if (numberOfBricks <= 0)
+        {
+            SceneManager.LoadScene("Win");
+        }
+    }
 
     void GameOver()
     {
