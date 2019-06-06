@@ -10,6 +10,8 @@ public class PaddleSccript : MonoBehaviour
     public float speed;
     public float rightScreenEdge;
     public float leftScreenEdge;
+    public GameManager gm;
+
     void Start()
     {
         
@@ -42,6 +44,15 @@ public class PaddleSccript : MonoBehaviour
         {
             transform.position = new Vector2(rightScreenEdge, transform.position.y);
         }
+        
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("ExtraLife"))
+        {
+            gm.UpdateLives(1);
+            Destroy(other.gameObject);
 
+        }
     }
 }

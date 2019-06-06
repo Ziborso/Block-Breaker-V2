@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bottom
   - Brick
+  - Paddle
+  - ExtraLife
   layers:
   - Default
   - TransparentFX

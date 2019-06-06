@@ -58,6 +58,7 @@ public class BallScript : MonoBehaviour
             Destroy (newExplosion.gameObject, 2.5f);
 
             gm.UpdateScore (other.gameObject.GetComponent< Brick_script > ().points);
+            gm.UpdateNumberOfBricks();
 
             Destroy (other.gameObject);
         }
