@@ -5,7 +5,6 @@ using UnityEngine;
 public class PowerUpScript : MonoBehaviour
 {
     public float speed;
-    public GameManager gm;
 
     void Start()
     {
@@ -16,14 +15,12 @@ public class PowerUpScript : MonoBehaviour
     void Update()
     {
         transform.Translate(new Vector2(0f,- 1f) * Time.deltaTime * speed);
-    }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Paddle"))
+
+        if(transform.position.y < -7f)
         {
-            gm.UpdateLives(1);
-            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
+
     }
-    
+
 }

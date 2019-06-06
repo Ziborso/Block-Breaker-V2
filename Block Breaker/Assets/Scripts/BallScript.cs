@@ -12,6 +12,7 @@ public class BallScript : MonoBehaviour
     public Transform explosion;
     public GameManager gm;
     public int numberOfBricks;
+    public Transform powerup;
 
     void Start()
     {
@@ -54,13 +55,27 @@ public class BallScript : MonoBehaviour
     {
         if (other.transform.CompareTag ("Brick"))
         {
-            Transform newExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
-            Destroy (newExplosion.gameObject, 2.5f);
+            Brick_script brickScript = other.gameObject.GetComponent<Brick_script>();
+            if (brickScript.hitsToBreake > 1)
+            {
+                brickScript.BreakBrick();
+            }
+            else
+            {
+                int randChance = Random.Range(1, 101);
+                if (randChance < 50)
+                {
+                    Instantiate(powerup, other.transform.position, other.transform.rotation);
+                }
 
-            gm.UpdateScore (other.gameObject.GetComponent< Brick_script > ().points);
-            gm.UpdateNumberOfBricks();
+                Transform newExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
+                Destroy(newExplosion.gameObject, 2.5f);
 
-            Destroy (other.gameObject);
+                gm.UpdateScore(brickScript.points);
+                gm.UpdateNumberOfBricks();
+
+                Destroy(other.gameObject);
+            }
         }
             
     }
