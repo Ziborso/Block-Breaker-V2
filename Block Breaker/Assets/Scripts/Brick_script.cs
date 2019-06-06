@@ -15,4 +15,5 @@ public class Brick_script : MonoBehaviour
 
 
     }
+    
 }

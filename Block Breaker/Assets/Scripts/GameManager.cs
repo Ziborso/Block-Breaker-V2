@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         numberOfBricks--; 
         if (numberOfBricks <= 0)
         {
-            SceneManager.LoadScene("Win");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

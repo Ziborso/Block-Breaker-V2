@@ -60,10 +60,11 @@ public class BallScript : MonoBehaviour
             {
                 brickScript.BreakBrick();
             }
+          
             else
             {
                 int randChance = Random.Range(1, 101);
-                if (randChance < 50)
+                if (randChance < 10)
                 {
                     Instantiate(powerup, other.transform.position, other.transform.rotation);
                 }
